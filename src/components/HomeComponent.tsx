@@ -1,9 +1,9 @@
 import React from "react";
+import { Text } from "vcc-ui";
 import { useCars } from "../hooks/useCars";
 import { CarCard } from "./CarCard";
-import styles from "../../public/css/home.module.css";
-import { Text } from "vcc-ui";
 import { Spacer } from "./Spacer";
+import styles from "../../public/css/home.module.css";
 import PaginationDesktop from "./PaginationDesktop";
 
 export const HomeComponent: React.FC = () => {
@@ -11,19 +11,18 @@ export const HomeComponent: React.FC = () => {
 
   const onClickLeft = () => {
     let cardList = document.getElementById("card-list");
-    let card = document.firstElementChild;
-    let cardSize = card?.clientWidth ?? 0 + 24;
-    let scrollSize = cardList?.scrollWidth ?? 0;
+    let card = cardList?.firstElementChild;
+    let cardSize = (card?.clientWidth ?? 0) + 24;
     let scrollPosition = cardList?.scrollLeft ?? 0;
 
-    if (scrollPosition - cardSize) {
+    if (scrollPosition >= cardSize) {
       cardList?.scrollTo({ left: scrollPosition - cardSize });
     }
   };
   const onClickRight = () => {
     let cardList = document.getElementById("card-list");
     let card = cardList?.firstElementChild;
-    let cardSize = card?.clientWidth ?? 0 + 24;
+    let cardSize = (card?.clientWidth ?? 0) + 24;
     let scrollSize = cardList?.scrollWidth ?? 0;
     let scrollPosition = cardList?.scrollLeft ?? 0;
 
