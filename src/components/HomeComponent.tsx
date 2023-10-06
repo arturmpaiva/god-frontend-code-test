@@ -5,6 +5,7 @@ import { CarCard } from "./CarCard";
 import { Spacer } from "./Spacer";
 import styles from "../../public/css/home.module.css";
 import PaginationDesktop from "./PaginationDesktop";
+import PaginationMobile from "./PaginationMobile";
 
 export const HomeComponent: React.FC = () => {
   const { cars } = useCars();
@@ -26,6 +27,8 @@ export const HomeComponent: React.FC = () => {
     else cardList?.scrollTo({ left: scrollPosition + cardSize });
   };
 
+  const onClickMobile = (index: number) => {};
+
   return (
     <div className={styles.homeWrapper}>
       <Text variant="cook">Todos os modelos Recharge</Text>
@@ -39,6 +42,10 @@ export const HomeComponent: React.FC = () => {
         onClickLeft={() => onClickNavigate(true)}
         onClickRight={() => onClickNavigate(false)}
       />
+      <PaginationMobile
+        onClick={onClickMobile}
+        total={cars.length}
+      ></PaginationMobile>
     </div>
   );
 };
