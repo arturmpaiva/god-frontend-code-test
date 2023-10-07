@@ -7,12 +7,18 @@
 }
 
 .btn {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 100%;
-    color: #000000;
-
+    background-color: #d5d5d5;
     border: none;
     padding: 0;
-
+}
+.btnSelected {
+    border: none;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: #1e1e1e;
 }
